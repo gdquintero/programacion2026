@@ -78,6 +78,15 @@ def producto_matricial(A,B,m,n,p):
 
     return res
 
+def transpuesta(A,m,n):
+    res = np.zeros((n,m))
+
+    for i in range(n):
+        for j in range(m):
+            res[i,j] = A[j,i]
+
+    return res
+
 # Menus
 def mostrar_menu_principal():
     limpiar()
@@ -280,29 +289,31 @@ def menu_matrices():
             A = leer_matriz(m,n)
 
             print("\nComponentes de la segunda matriz")
-            B = leer_matriz(m,n)
+            B = leer_matriz(n,p)
 
-            print(f"La adicion es\n \n{A + B}")
+            C = producto_matricial(A,B,m,n,p)
+
+            print(f"La multiplicacion de las matrices es\n \n{C}")
             input("\nPresiona Enter para continuar...")
 
             del A
             del B
-        # elif op == 3:
+            del C
 
-        #     print("\nComponentes del primer vector")
-        #     x = leer_vector(3)
+        elif op == 3:
+            m = int(input("Escribe m: "))
+            n = int(input("Escribe n: "))
 
-        #     print("\nComponentes del segundo vector")
-        #     y = leer_vector(3)
+            print("\nComponentes de la matriz")
+            A = leer_matriz(m,n)
 
-        #     cross = producto_cruz(x,y)
+            At = transpuesta(A,m,n)
 
-        #     print(f"\nEl producto cruz es {cross}")
-        #     input("\nPresiona Enter para continuar...")
+            print(f"La transpuesta de la matriz es\n \n{At}")
+            input("\nPresiona Enter para continuar...")
 
-        #     del x
-        #     del y
-        #     del cross
+            del A
+            del At
   
 
         elif op == 0:
