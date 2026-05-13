@@ -258,13 +258,12 @@ def menu_matrices():
         if op == 1:
             m = int(input("Escribe m: "))
             n = int(input("Escribe n: "))
-            p = int(input("Escribe p: "))
 
             print("\nComponentes de la primera matriz")
             A = leer_matriz(m,n)
 
             print("\nComponentes de la segunda matriz")
-            B = leer_matriz(n,p)
+            B = leer_matriz(m,n)
 
             print(f"La adicion es\n \n{A + B}")
             input("\nPresiona Enter para continuar...")
@@ -272,21 +271,22 @@ def menu_matrices():
             del A
             del B
 
-        # elif op == 2:
-        #     n = int(input("Escribe la dimension: "))
+        elif op == 2:
+            m = int(input("Escribe m: "))
+            n = int(input("Escribe n: "))
+            p = int(input("Escribe p: "))
 
-        #     print("\nComponentes del primer vector")
-        #     x = leer_vector(n)
+            print("\nComponentes de la primera matriz")
+            A = leer_matriz(m,n)
 
-        #     print("\nComponentes del segundo vector")
-        #     y = leer_vector(n)
+            print("\nComponentes de la segunda matriz")
+            B = leer_matriz(m,n)
 
-        #     print(f"\nEl producto punto es {producto_punto(x,y,n)}")
-        #     input("\nPresiona Enter para continuar...")
+            print(f"La adicion es\n \n{A + B}")
+            input("\nPresiona Enter para continuar...")
 
-        #     del x
-        #     del y
-
+            del A
+            del B
         # elif op == 3:
 
         #     print("\nComponentes del primer vector")
