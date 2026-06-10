@@ -1,7 +1,5 @@
 import numpy as np
 
-import numpy as np
-
 def merge(A, p, q, r):
     # Copiar la mitad izquierda A[p..q] en un arreglo temporal L
     L = A[p:q+1].copy()
