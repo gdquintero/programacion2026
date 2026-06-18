@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+import time
 
 def merge(A, p, q, r):
     # Copiar la mitad izquierda A[p..q] en un arreglo temporal L
@@ -47,9 +49,22 @@ def merge_sort(A, p, r):
         merge(A, p, q, r)
 
 
-A = np.array([5, 2, 4, 6, 1, 3])
-print("Antes:   ", A)
+sizes = np.linspace(500,5000,100,dtype=int)
+tn = np.zeros(len(sizes))
+i = 0
+ordered = False
 
-merge_sort(A, 0, len(A) - 1)  # ordenar todo el arreglo
+for n in sizes:
+    print(i)
 
-print("Después: ", A)
+    if ordered: x = np.linspace(1,n,n,dtype=int) 
+    else: x = np.linspace(n,1,n,dtype=int)
+
+    start = time.time()
+    np.sort(x)
+    finish = time.time()
+    tn[i] = finish - start
+    i += 1
+
+plt.plot(sizes,tn,"or")
+plt.show()
