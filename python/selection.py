@@ -1,7 +1,6 @@
 import numpy as np
 
 def compute_min(v,n):
-
 	minimum = v[0]
 	pos = 0
 
@@ -13,7 +12,6 @@ def compute_min(v,n):
 	return minimum,pos
 
 def selection(v,n):
-
 	for i in range(n - 1):
 		key,pos = compute_min(v[i:],n - i)
 		v[i + 1:pos + 1 + i] = v[i:pos + i] 
