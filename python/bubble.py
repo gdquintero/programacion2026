@@ -1,4 +1,5 @@
 import numpy as np
+import time
 
 def bubble(v):
 	n = len(v)
@@ -15,6 +16,11 @@ def bubble(v):
 			break
 	return v
 
-v = np.array([5,4,3,2,1])
+n = 20000
+v = np.linspace(n,1,n)
 
-print(bubble(v))
+star = time.time()
+bubble(v)
+finish = time.time()
+
+print("Tiempo: ", finish - star)

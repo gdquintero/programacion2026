@@ -5,7 +5,7 @@ program insertion
     integer :: k, n
 
     n = 10
-    arr = [(k, k = n,1,-1)]
+    arr = [(real(k, kind=8), k = n, 1, -1)]
 
     call insertion_sort(arr)
 
