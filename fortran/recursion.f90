@@ -1,29 +1,31 @@
 program recursion
     implicit none
 
-    integer, allocatable :: fib_array(:)
-    integer :: m
-
-    m = 10
-    allocate(fib_array(m))
-
-    call fibonacci(m,fib_array)
-
-    print*, fib_array
-
     contains
 
-    recursive subroutine fibonacci(n, arr)
+    recursive function horner(arr,x) result (res)
+        implicit none
+
+        real(kind=8),   intent(in) :: arr(:), x
+        real(kind=8) :: res
+
+        if (size(arr) == 1) then
+            res = arr(1)
+        else
+            res = arr(1) + x * horner(arr(2:),x)
+        endif
+
+    end function horner
+
+    recursive subroutine fibonacci(arr,n)
         implicit none
         integer, intent(in) :: n
-        integer, intent(out) :: arr(n)
+        integer, intent(out) :: arr(:)
 
-        if (n == 1) then
-            arr(1) = 0
-        elseif (n == 2) then
+        if (n == 2) then
             arr = [0, 1]
         else
-            call fibonacci(n-1, arr(1:n-1))
+            call fibonacci(arr(1:n-1),n-1)
             arr(n) = arr(n-1) + arr(n-2)
         end if
     end subroutine fibonacci
