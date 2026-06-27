@@ -12,6 +12,8 @@ program merge
     ! call bubble_sort(arr)
     ! call cpu_time(finish)
 
+    
+
     contains
 
     subroutine merge_sort(v)
